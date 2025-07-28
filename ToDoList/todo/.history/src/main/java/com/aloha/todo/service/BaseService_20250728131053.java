@@ -1,0 +1,19 @@
+package com.aloha.todo.service;
+
+import java.util.List;
+
+import com.github.pagehelper.PageInfo;
+
+public interface BaseService<E> {
+        
+    public List<E> list();
+    public PageInfo<E> list(int page, int size);
+    public E select(Long no);
+    public E selectById(String id);
+    public int insert(E entity);
+    public int update(E entity);
+    public int updateById(E entity);
+    public int delete(Long no);
+    public int deleteById(String id);
+
+}

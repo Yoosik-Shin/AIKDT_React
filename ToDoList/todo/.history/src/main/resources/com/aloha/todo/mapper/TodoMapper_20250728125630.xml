@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace="매퍼 인터페이스 경로" --> 
+<mapper namespace="com.aloha.todo.mapper.TodoMapper">
+
+    <select id="list" resultType="Todos">
+        SELECT *
+        FROM todos
+    </select>
+
+    <!-- ⚡ 페이징 처리 후 정렬을 적용 -->
+    <!-- 이유 : 정렬 후 페이징 하면, 완료 안 된 것만 앞으로 나오니까 
+                페이징 후 정렬을 적용합니다.            
+    -->
+
+    <select id="select" resultType="TOdos">
+        SELECT *
+        FROM todos
+        WHERE no = #{no}
+    </select>
+
+    select
+</mapper>

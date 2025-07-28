@@ -1,0 +1,6 @@
+.container {
+  border: 2 px solid cornflowerblue;
+  margin: 100px auto;
+  width: 480px;
+  min-height: 6;
+}
