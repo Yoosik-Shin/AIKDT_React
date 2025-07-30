@@ -1,0 +1,10 @@
+.container {
+  width: 1024px;
+  margin: 50px auto;
+}
+
+.btn {
+  display: inline-block;
+  min-width: 100px;
+  background-color: ing;
+}

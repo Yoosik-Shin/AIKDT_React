@@ -1,0 +1,13 @@
+.container {
+  width: 1024px;
+  margin: 50px auto;
+}
+
+.btn {
+  display: inline-block;
+  min-width: 100px;
+  min-height: 20px;
+  p12
+  background-color: inherit;
+  border: 1px solid black;
+}

@@ -1,0 +1,11 @@
+.table.th,
+.table td {
+    border: 1px solid black;
+    padding: 8px;
+}
+.table th {
+    background-color: black;
+    color: white;
+}
+.table tr:hover { background-color: lightskyblue;}
+.table th:nth-child(1),

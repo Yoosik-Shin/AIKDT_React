@@ -1,0 +1,18 @@
+import axios from 'axios';
+axios.defaults.baseURL = "/boards"
+
+
+// 목록
+export const list = (page, size) => axios.get(`?page=${page}&size=${size}`)
+
+// 조회
+export const select = (id) => axios.get(`/${id}`)
+
+// 등록
+export const insert = (data, headers) => axios.post("", data, headers)
+
+// 수정
+export const update = (data, headers) => axios.put("", data, headers)
+
+// 삭제
+export const remove = (id) => axios.delete(`/${id}`)

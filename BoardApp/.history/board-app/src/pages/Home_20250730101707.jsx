@@ -1,0 +1,16 @@
+import React from 'react'
+
+const Home = () => {
+  return (
+    <>
+        <div className="container">
+            <h1>Boards App</h1>
+            <h2>* 게시판 앱</h2>
+
+            <Link></Link>
+        </div>
+    </>
+  )
+}
+
+export default Home
