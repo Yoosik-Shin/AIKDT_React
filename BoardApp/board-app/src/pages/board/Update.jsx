@@ -1,5 +1,5 @@
 import React from 'react'
-import UpdateContainer from './../../containers/board/UpdateContainer';
+import UpdateContainer from '../../containers/board/UpdateContainer'
 
 const Update = () => {
   return (

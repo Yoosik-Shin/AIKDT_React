@@ -1,0 +1,17 @@
+package com.aloha.board.domain;
+
+import lombok.Data;
+
+@Data
+public class Files {
+    private Long no;
+    private String id;
+    private String parentTable;
+    private Long parentNo;
+    private String fileName;
+    private String originName;
+    private String filePath;
+    private Long fileSize;
+    private Date createdAt;
+    private Date updatedAt;
+}

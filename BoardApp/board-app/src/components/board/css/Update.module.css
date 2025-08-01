@@ -6,16 +6,15 @@
     border: 2px solid gray;
     border-radius: 4px;
     resize: none;
-}
+}   
 
 .form-input:hover,
-.form.input:focus {
+.form-input:focus {
     border: 2px solid lightblue;
     background-color: rgba(240, 255, 255, 0.5);
 }
 
-.table th,
-.table td {
+.table th,.table td {
     border: 1px solid black;
     padding: 8px;
 }

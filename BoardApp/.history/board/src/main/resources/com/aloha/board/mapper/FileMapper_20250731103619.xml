@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace="매퍼 인터페이스 경로" --> 
+<mapper namespace="com.joeun.server.mapper.FileMapper">
+
+    <!-- 파일 목록 -->
+    <select id="list" resultType="Files">
+        SELECT *
+        FROM files
+        ORDER BY reg_date DESC
+    </select>
+
+    <!-- 파일 목록 - 부모 테이블 기준 -->
+    <!-- * 파일이 종속되는 테이블을 기준으로 파일 목록을 조회 -->
+    <!-- * 게시글 번호 10 
+           📄 파일 번호 1
+           📄 파일 번호 2
+           📄 파일 번호 3
+     -->
+    <select id="listByParent" resultType="Files">
+        SELECT *
+        FROM files
+        WHERE parent_table = #{parentTable}
+          AND parent_no = #{parentNo}
+        ORDER BY reg_date DESC
+    </select>
+
+    <!-- 파일 조회 -->
+    <select id="select" resultType="Files">
+        SELECT *
+        FROM files
+        WHERE no = #{no}
+    </select>
+
+    <!-- 파일 등록 -->
+    <insert id="insert">
+        INSERT INTO files( id, p_table, p_no, file_name, origin_name, file_path, file_size, type, seq )
+        VALUES ( #{id}, #{pTable}, #{pNo}, #{fileName}, #{originName}, #{filePath}, #{fileSize}, #{type}, #{seq} )
+    </insert>
+
+    <!-- 파일 수정 -->
+    <update id="update">
+        UPDATE files
+        <set>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="seq != null">
+                seq = #{seq},
+            </if>
+
+
+            <if test="p_table">
+            p_table = #{p_table}
+            </if>
+            <if test="p_no">
+            p_no = #{p_no}
+            </if>
+            <if test="fileName">
+            file_name = #{fileName}
+            </if>
+            <if test="originName">
+            origin_name = #{originName}
+            </if>
+            <if test="filePath">
+            file_path = #{filePath}
+            </if>
+            <if test="fileSize">
+            file_size = #{fileSize}
+            </if>
+
+        </set>
+        WHERE no = #{no}
+    </update>
+
+    <!-- 파일 삭제 -->
+    <delete id="delete">
+        DELETE FROM files
+        WHERE no = #{no}
+    </delete>
+
+
+    <!-- 파일 목록 삭제 - 부모 테이블 기준 파일 목록 삭제 -->
+    <delete id="deleteByParent">
+        DELETE FROM files
+        WHERE parent_table = #{pTable}
+          AND parent_no = #{pNo}
+    </delete>
+
+
+    <!-- ✨ #{} vs ${} -->
+    
+    <!-- 선택 삭제 - no (문자열 - IN) -->
+    <!-- 선택 삭제 - id (문자열 - IN) -->
+
+    <!-- 선택 삭제 - no (List 컬렉션) -->
+    <!-- 선택 삭제 - id (List 컬렉션) -->
+
+    <!-- 타입별 파일 조회 -->
+    <!-- 타입별 파일 목록 -->
+
+
+
+    <!-- 게시글 번호 최댓값 -->
+    <select id="maxPk" resultType="int">
+        SELECT MAX(no)
+        FROM file
+    </select>
+
+
+</mapper>
